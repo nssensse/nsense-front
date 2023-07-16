@@ -43,7 +43,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('https://sunny-bunny-f36130.netlify.app/web-data', {
+        fetch('https://92.53.88.98:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
