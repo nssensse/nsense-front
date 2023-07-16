@@ -5,7 +5,7 @@ import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
 
 const products = [
-    {id: '1', title: 'Джинсы 1', price: 5000, description: 'Синего цвета, прямые'},
+    {id: '1', title: 'Джинсики ', price: 5000, description: 'Синего цвета, прямые'},
     {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
     {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
     {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
@@ -20,7 +20,19 @@ const getTotalPrice = (items = []) => {
         return acc += item.price
     }, 0)
 }
-
+// axios.post('http://89.223.31.99:8000/web-data', data, {
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//     .then(response => {
+//       // Обработка успешного ответа
+//       console.log(response.data);
+//     }) 
+//     .catch(error => {
+//       // Обработка ошибки
+//       console.error(error);
+//     });
 const ProductList = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
@@ -31,7 +43,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://92.53.88.98:8000/web-data', {
+        fetch('https://sunny-bunny-f36130.netlify.app/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
